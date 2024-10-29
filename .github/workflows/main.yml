@@ -13,6 +13,6 @@ jobs:
         uses: actions/checkout@v2
       
       - name: Update README
-        uses: anuraghazra/github-readme-stats@master
+        uses: AsjadButt/asjadbutt@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
