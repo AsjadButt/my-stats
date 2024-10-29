@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
 
       - name: Update README with GitHub Stats
         run: |
@@ -24,6 +24,6 @@ jobs:
           git config --local user.email "github-actions@github.com"
           git add README.md
           git commit -m "Update README with latest stats" || echo "No changes to commit"
-          git push
+          git push origin main  # Make sure this is your correct branch name
         env:
-          GITHUB_TOKEN: ${{ secrets.STATS_GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}  # Use your PAT here
