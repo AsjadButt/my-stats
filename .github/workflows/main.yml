@@ -1,18 +1,29 @@
-name: Update ReadMe Stats
+name: Update GitHub Stats
 
 on:
   schedule:
-    - cron: '0 * * * *' # This will run every hour
-  workflow_dispatch:
+    - cron: '0 * * * *' # Runs every hour
+  workflow_dispatch: # Allows manual trigger
 
 jobs:
-  build:
+  update:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-      
-      - name: Update README
-        uses: AsjadButt/asjadbutt@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Update README with GitHub Stats
+        run: |
+          echo "# Hello, I'm Your Name!" > README.md
+          echo "![Your GitHub Stats](https://github-readme-stats.vercel.app/api?username=AsjadButt&show_icons=true&hide_title=true)" >> README.md
+          echo "![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=AsjadButt&layout=compact)" >> README.md
+
+      - name: Commit and Push Changes
+        run: |
+          git config --local user.name "github-actions"
+          git config --local user.email "github-actions@github.com"
+          git add README.md
+          git commit -m "Update README with latest stats"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
