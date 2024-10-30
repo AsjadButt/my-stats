@@ -5,7 +5,7 @@ on:
     branches:
       - master  # Trigger on push to main branch
   schedule:
-    - cron: '0 * * * *' # Runs every hour
+    - cron: '0 0 * * 0' # Runs every hour
   workflow_dispatch: # Allows manual trigger
 
 permissions:
