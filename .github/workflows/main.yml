@@ -20,7 +20,6 @@ jobs:
 
       - name: Update README with GitHub Stats
         run: |
-          echo "# Hello, I'm Your Name!" > README.md
           echo "![Your GitHub Stats](https://github-readme-stats.vercel.app/api?username=AsjadButt&show_icons=true&hide_title=true)" >> README.md
           echo "![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=AsjadButt&layout=compact)" >> README.md
 
