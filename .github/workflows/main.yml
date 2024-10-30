@@ -1,9 +1,15 @@
 name: Update GitHub Stats
 
 on:
+  push:
+    branches:
+      - master  # Trigger on push to main branch
   schedule:
     - cron: '0 * * * *' # Runs every hour
   workflow_dispatch: # Allows manual trigger
+
+permissions:
+  contents: write  # Allow the action to push changes
 
 jobs:
   update:
